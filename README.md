@@ -1,5 +1,9 @@
 # bigDataWithR
 
+- uncompress ./data/csv.tar.gz
+    - cd data ; tar xvfz csv.tar.gz
+
+
 ## seminar00.R : introduction
 -  package install 및 d3.js 맞보기 ### d3.js
 ### Map : leaflet
@@ -60,6 +64,9 @@
     - Random Forest & Gradient Boost Machine  : 제일 좋음.
     - Super Learner
 - training the machine with train data
+
+### Caret 한개면 다 됨.
+- [Caret](http://topepo.github.io/caret/available-models.html) : 6. 6 Available Models
 
 ## Model comparison
 - summarize accuracy of models
