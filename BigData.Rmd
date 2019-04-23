@@ -1,0 +1,48 @@
+---
+title: "BigData"
+author: "charles.lee"
+date: "2019년 4월 17일"
+output: 
+  html_document:
+      toc: true
+      toc_float: true
+---
+
+# introduction
+
+- This is basic statistics.
+
+
+# example
+## basic example with iris
+```{r}
+
+head(iris)
+summary(iris)
+
+```
+
+## enhanced example with ggplot and ggplotly
+
+```{r warning=FALSE}
+library(dplyr)
+library(plotly)
+g <- ggplot(iris,aes(Petal.Length,Petal.Width,size=Petal.Width,color=Species)) +
+  geom_point(alpha=0.7)
+
+ggplotly(g)
+
+```
+
+## SKT analysis
+```{r}
+library(dplyr)
+library(ggplot2)
+data <- read.csv("data/SKT_DELIVERY.csv")
+levels(data$요일) <- c('월','화','수','목','금','토','일')
+for(var in names(data)[2:6]){
+  out <- data %>% group_by_(var) %>% summarise(sum = sum(통화건수)) %>% arrange(-sum)
+  g <- ggplot(out,aes_string(var,'sum')) + geom_bar(stat='identity', fill='skyblue') + coord_flip()
+  print(g)
+}
+```
